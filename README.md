@@ -1,4 +1,4 @@
-# Data and code for "Mt or not Mt: Temporal variation in detection probability in spatial capture-recapture and occupancy models", Sollmann, Peer Community Journal (in review)
+# Data and code for "Mt or not Mt: Temporal variation in detection probability in spatial capture-recapture and occupancy models", Sollmann, R., Peer Community Journal (submitted)
 ---
 
 All code necessary to implement the simulation and case studies described in the above references manuscript
