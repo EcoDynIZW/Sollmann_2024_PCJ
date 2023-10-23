@@ -298,7 +298,7 @@ pol<-ggplot(bias.Occu.low, aes(x = Scenario, y = Bias*100, fill=Model,
                                `Alt.` = colr[2])) + 
   scale_color_manual(values = c(`D.g.` =colr[2], 
                                 `Alt.` = "black"))+
-  labs(x = NULL, y = expression(paste("Relative bias  ", bar(psi), sep=''))) +
+  labs(x = NULL, y = expression(paste("Relative error  ", bar(psi), sep=''))) +
   scale_x_discrete(breaks=c("1", "2", "3"),
                      labels=c("1 (low)", "2 (low)", "3 (low)"))+
   geom_hline(data=v_line,aes(yintercept = yintercept), 
@@ -348,7 +348,7 @@ pbl<-ggplot(bias.b.low, aes(x = Scenario, y = Bias*100, fill=Model,
                                `Alt.` = colr[2])) + # alpha = .3,
   scale_color_manual(values = c(`D.g.` =colr[2], 
                                 `Alt.` = "black"))+
-  labs(x = NULL, y = expression(paste("Relative bias ", beta, sep=''))) +
+  labs(x = NULL, y = expression(paste("Relative error ", beta, sep=''))) +
   scale_x_discrete(breaks=c("1", "2", "3"),
                    labels=c("1 (low)", "2 (low)", "3 (low)"))+
   geom_hline(data=v_line,aes(yintercept = yintercept), 

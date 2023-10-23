@@ -290,7 +290,7 @@ bNm<-ggplot(bias.Nmain, aes(x = Scenario.name, y = Bias*100, fill=Model)) +
   geom_boxplot(color = "black") + 
   scale_fill_manual(values = c(`D.g.` = colr[1],
                                `Alt.` = colr[2])) + 
-  labs(x = NULL, y = "Relative bias N") +
+  labs(x = NULL, y = "Relative error N") +
   geom_hline(data=v_line,aes(yintercept = yintercept), 
              linetype='dashed', color = 'orangered', linewidth=0.5)+
   coord_cartesian(ylim=c(-55,100)) +
@@ -332,7 +332,7 @@ bbm<-ggplot(bias.bmain, aes(x = Scenario.name, y = Bias*100, fill=Model)) +
   geom_boxplot(color = "black") + 
   scale_fill_manual(values = c(`D.g.` = colr[1],
                                `Alt.` = colr[2])) + 
-  labs(x = NULL, y = expression(paste("Relative bias  ", beta, sep=''))) +
+  labs(x = NULL, y = expression(paste("Relative error  ", beta, sep=''))) +
   geom_hline(data=v_line,aes(yintercept = yintercept), 
              linetype='dashed', color = 'orangered', linewidth=0.5)+
   coord_cartesian(ylim=c(-250,200)) +
@@ -373,7 +373,7 @@ bsm<-ggplot(bias.smain, aes(x = Scenario.name, y = Bias*100, fill=Model)) +
   geom_boxplot(color = "black") + 
   scale_fill_manual(values = c(`D.g.` = colr[1],
                                `Alt.` = colr[2])) + # alpha = .3,
-  labs(x = 'Scenario', y = expression(paste("Relative bias  ", sigma, sep=''))) +
+  labs(x = 'Scenario', y = expression(paste("Relative error  ", sigma, sep=''))) +
   geom_hline(data=v_line,aes(yintercept = yintercept), 
              linetype='dashed', color = 'orangered', linewidth=0.5)+
   coord_cartesian(ylim=c(-50,50)) +

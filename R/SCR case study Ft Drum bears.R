@@ -8,7 +8,7 @@ library(secr)
 library(oSCR)
 
 ## load data on black bears (see ms for details)
-## black bear data can be downloaded from scrbook github repository:
+## data comes with the oSCR package
 
 data('beardata')
 
