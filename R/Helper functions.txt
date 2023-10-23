@@ -1,0 +1,16 @@
+e2dist <- function (x, y){
+  i <- sort(rep(1:nrow(y), nrow(x)))
+  dvec <- sqrt((x[, 1] - y[i, 1])^2 + (x[, 2] - y[i, 2])^2)
+  matrix(dvec, nrow = nrow(x), ncol = nrow(y), byrow = F)
+}
+
+### function to generate correlated covariate time series
+spcov2 <- function(D, alpha=2, standardize=TRUE) {
+  V <- exp(-D/alpha)
+  cov1 <- t(chol(V)) %*% rnorm(nrow(D))
+  if(standardize)
+    z <- as.numeric((cov1 - mean(cov1)) / sd(cov1))
+  else
+    z <- as.numeric(cov1)
+  return(z)
+}
