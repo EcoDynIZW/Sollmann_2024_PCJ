@@ -23,6 +23,8 @@ All code necessary to implement the simulation and case studies described in the
 
 *Summarize secr sim all scenarios.R*: R code to summarize SCR simulation output and create main Figure 1 and some appendix figures
 
+*Helper functions.txt*: R code for two functions, to calculate distances between two sets of coordinates (e2dist) and to generate correlated variables (spcov2)
+
 
 ## Sharing/Access information
 
