@@ -1,10 +1,18 @@
+# Function to compute Euclidean distances
+# (from the R package that goes along with the
+#    Spatial Capture-Recapture book by Royle et al. (2014))
+
 e2dist <- function (x, y){
   i <- sort(rep(1:nrow(y), nrow(x)))
   dvec <- sqrt((x[, 1] - y[i, 1])^2 + (x[, 2] - y[i, 2])^2)
   matrix(dvec, nrow = nrow(x), ncol = nrow(y), byrow = F)
 }
 
-### function to generate correlated covariate time series
+
+## Function to generate correlated variable - 
+## adapted from Chandler & Hepinstall-Cymerman, 2016,
+## Supplementary Material 1; doi.org/10.1007/s10980-016-0380-z
+
 spcov2 <- function(D, alpha=2, standardize=TRUE) {
   V <- exp(-D/alpha)
   cov1 <- t(chol(V)) %*% rnorm(nrow(D))
