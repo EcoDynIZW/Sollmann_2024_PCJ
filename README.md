@@ -17,7 +17,7 @@ All code necessary to implement the simulation and case studies described in the
 
 *SCR case study brown tree snakes.R*: R code to repeat SCR case study for brown tree snakes
 
-*SCR case study data prep.R*: R code to rformat original brown tree snake data for secr analysis; no need to run this script as its output is available in data-raw
+*SCR case study data prep.R*: R code to format original brown tree snake data for secr analysis; no need to run this script as its output is available in data-raw
 
 *secr simulation all scenario random Z.R*: R code to generate SCR data and analyze them under a model that does and one that does not account for temporal variation in detection
 
@@ -49,4 +49,6 @@ Fiske I, Chandler R (2011) Unmarked: an R package for fitting hierarchical model
 
 Kéry M, Royle JA, Meredith M (2022) AHMbook: Functions and Data for the Book “Applied Hierarchical Modeling in Ecology” Vols 1 and 2. R package version 0.2.6. https://CRAN.R-project.org/package=AHMbook
 
-Sutherland C, Royle JA, Linden D (2018) oSCR: Multi-Session Sex-Structured Spatial Capture-Recapture Models. R package version 0.42.0. https://CRAN.R-project.org/package=AHMbook
+Amburgey, S.M., Lardner, B., Knox, A.J., Converse, S.J., and A.A. Yackel Adams, 2021a, Brown Treesnake detections on transects using potential attractants of live-mouse lures or fish-spray scent, Guam: U.S. Geological Survey data release, https://doi.org/10.5066/P9G6JHZ3.
+
+Amburgey SM, AA Yackel Adams, B Gardner, B Lardner, AJ Knox, and SJ Converse. 2021b. Tools for increasing visual encounter probabilities for invasive species removal: a case study of brown treesnakes. Neobiota 70:107-122. https://doi.org/10.3897/neobiota.70.71379
