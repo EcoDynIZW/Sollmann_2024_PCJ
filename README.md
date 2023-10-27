@@ -9,13 +9,15 @@ All code necessary to implement the simulation and case studies described in the
 
 ## Description of the data and file structure
 
-<ins> **This repository contains the following code files** </ins>:
+<ins> **This repository contains the following code files (in folder R)** </ins>:
 
 *Occu simulation all scenarios.R*: R code to generate occupancy data and analyze them under a model that does and one that does not account for temporal variation in detection
 
 *Occupancy case study MHB.R*: R code to repeat occupancy case study for 10 breeding birds from Switzerland
 
-*secr case study Ft Drum bears.R*: R code to repeat SCR case study for bears in Ft Drum, NY
+*SCR case study brown tree snakes.R*: R code to repeat SCR case study for brown tree snakes
+
+*SCR case study data prep.R*: R code to rformat original brown tree snake data for secr analysis; no need to run this script as its output is available in data-raw
 
 *secr simulation all scenario random Z.R*: R code to generate SCR data and analyze them under a model that does and one that does not account for temporal variation in detection
 
@@ -25,6 +27,9 @@ All code necessary to implement the simulation and case studies described in the
 
 *Helper functions.txt*: R code for two functions, to calculate distances between two sets of coordinates (e2dist) and to generate correlated variables (spcov2)
 
+<ins> **This repository contains the following data files (in folder data-raw)** </ins>:
+
+*Snake_secr_data.rds*: Brown tree snake capture data formatted for secr analysis (original data from Amburgey et al., 2021a; original analysis of the data: Amburgey et al., 2021b) 
 
 ## Sharing/Access information
 
@@ -33,7 +38,7 @@ NA
 
 ## Code/Software
 
-Simulations require packages secr (Efford, 2022) and unmarked (Fiske and Chandler, 2011). Datasets for case studies come with R packages oSCR (Sutherland et al. 2018) and AHMbook (Kéry et al., 2022). Please see R scripts for additional packages used in processing data. 
+Simulations require packages secr (Efford, 2022) and unmarked (Fiske and Chandler, 2011). Dataset for occupancy case studies comes with R packages AHMbook (Kéry et al., 2022). Please see R scripts for additional packages used in processing data. 
 
 
 ## References
