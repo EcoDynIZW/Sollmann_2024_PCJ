@@ -96,7 +96,7 @@ round(predict(mS2, realnames=c('D'))[2:5], dig=2)
 
 
 ## get detection parameters on natural scale
-predict(m0, realnames='g0')
+# predict(m0, realnames='g0')
 #no scent
 plogis(coef(mT)['g0',1])
 #scent
