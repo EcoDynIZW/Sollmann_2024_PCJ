@@ -22,7 +22,7 @@
 
 library(secr)
 library(sn)
-source('Occupancy/Helper functions.txt')
+source('R/Helper functions.txt')
 
 ##############################################################################
 ######### constant settings across all scenarios #############################

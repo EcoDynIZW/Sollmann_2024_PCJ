@@ -19,7 +19,7 @@
 ## summary script as the focus is on ignoring temporal, not spatial, variation.
 
 library(unmarked)
-source('Helper functions.txt')
+source('R/Helper functions.txt')
 
 
 ##############################################################################

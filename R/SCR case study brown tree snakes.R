@@ -39,27 +39,46 @@ nocc <- ncol(act)
 ## add as usage to trap file
 usage(trp)<-act
 
+## turn binary scent treatment into 'proportion of active occasions with scent'
+## for model Ms
+pscent<-apply(dat$stat, 1, sum, na.rm=T)/apply(act, 1, sum)
+
 ## set up scent treatment as time varying covariate
 ## NA=location/date combination not surveyed
 ## 0 no scent/old scent
 ## 1 fresh scent
 
 timevaryingcov(trp) <- list(blockt = paste('X',1:nocc, sep=''))
-covariates (trp) <- data.frame(dat$stat)
+covariates (trp) <- data.frame(dat$stat, pscent=pscent)
 
 
 ## make capthist file
 chs<-make.capthist(dat$cap.df, traps=trp, fmt='trapID', noccasions = nocc)
 
 
-## run null model 
-#623 seconds
+## compress data into binomial counts format (for non-temp models only)
+chs.comp<-reduce(chs, outputdetector = 'count', by = 'all')
+
+# #M0: 76.83 seconds
+# system.time(
+#   (m0<-secr.fit(chs.comp, model=list(D~1, g0~1, sigma~1), mask=mask,
+#                 trace=TRUE,details = list(fastproximity = FALSE), binomN = 1))
+# )
+
+#Ms, compressed data: 689.42 seconds
 system.time(
-  (m0<-secr.fit(chs, model=list(D~1, g0~1, sigma~1), mask=mask,
+  (mS<-secr.fit(chs.comp, model=list(D~1, g0~pscent, sigma~1), mask=mask,
+                trace=TRUE,details = list(fastproximity = FALSE), binomN = 1))
+)
+
+#Ms uncompressed, for AIC comparison with Mst: 7433.71
+system.time(
+  (mS2<-secr.fit(chs, model=list(D~1, g0~pscent, sigma~1), mask=mask,
                 trace=TRUE,details = list(fastproximity = FALSE)))
 )
 
-#run model with scent covariate on detection - 2038.68 seconds
+# run model with scent covariate on detection - 2038.68 seconds
+## use uncompressed data
 ## Note: Warning that missing covariate values are set to -1 can be ignored 
 ##       as these only refer to unsampled occasions, which are taken into
 ##       account via the usage argument (above)
@@ -69,11 +88,11 @@ system.time(
 )#
 
 ## extract AIC
-AIC(m0, mT)
+AIC(mS2, mT)
 
 ## calculate density per ha
 round(predict(mT, realnames=c('D'))[2:5], dig=2)
-round(predict(m0, realnames=c('D'))[2:5], dig=2)
+round(predict(mS2, realnames=c('D'))[2:5], dig=2)
 
 
 ## get detection parameters on natural scale
@@ -83,5 +102,5 @@ plogis(coef(mT)['g0',1])
 #scent
 plogis(coef(mT)['g0',1]+coef(mT)['g0.blockt',1])
 
-predict(m0, realnames='sigma')
+predict(mS2, realnames='sigma')
 predict(mT, realnames='sigma')
